@@ -4,42 +4,59 @@
 export default function Landing() {
     return (
         <div
-            className="flex-col overflow-hidden self-stretch relative flex min-h-screen items-center justify-center px-5 py-12 max-md:max-w-full">
+            className="flex-col overflow-hidden relative flex min-h-[730px] w-full pl-16 pr-20 py-12 items-start max-md:max-w-full max-md:px-5"
+        >
             <img
                 loading="lazy"
-                src="/pic1.svg"
-                alt="Description of the image"
-                className="absolute z-1 inset-0 mx-auto my-auto"
+                srcSet="/background_main-screen.png"
+                className="absolute h-full w-full object-cover object-center inset-0"
             />
-
-            <div className="relative flex w-[864px] max-w-full flex-col items-stretch mt-10 mb-72 max-md:my-10">
-                <div
-                    className="text-neutral-800 text-center text-5xl font-semibold leading-[52px] max-md:max-w-full max-md:text-4xl max-md:leading-[51px]">
-
-                    Создай индивидуальный рацион вместе с bOOd
-                </div>
-                <div
-                    className="text-neutral-800 text-center leading-7 self-center whitespace-nowrap mt-6 max-md:max-w-full max-sm:text-center">
-                    Оцениваем ваш рацион с учётом пищевых привычек
-                </div>
-                <div
-                    className="items-stretch self-center flex w-[609px] max-w-full justify-between gap-5 mt-16 pr-11 max-md:flex-wrap max-md:mt-10 max-md:pr-5">
-                    <input
-                        type="email"
-                        className="text-neutral-600 text-base leading-5 items-stretch border bg-yellow-100 grow px-3 py-3.5 rounded-xl border-solid border-neutral-800"
-                        placeholder="введите email"
-                        style={{zIndex: 2}}
-                    />
-
-                    <a
-                        href="/auth/register"
-                        className="text-white text-2xl font-semibold leading-6 whitespace-nowrap justify-center items-stretch bg-yellow-400 grow cursor-pointer pointer-events-auto px-5 py-3 rounded-xl text-center"
-                        style={{zIndex: 2}}
-                    >
-                        Регистрация
-                    </a>
-                </div>
+            <div
+                className="relative text-yellow-400 text-5xl font-semibold leading-[61px] w-[738px] max-w-full mt-20 max-md:text-4xl max-md:leading-[52px] max-md:mt-10"
+            >
+                <span className="text-black">Создай</span>
+                <br/> <span className="text-yellow-400">индивидуальный рацион</span><br/>
+                <span className="text-black">вместе с bOOd!</span>
             </div>
+            <div
+                className="relative text-neutral-800 text-xl leading-7 tracking-wide mt-11 max-md:max-w-full max-md:mt-10"
+            >
+                Оцениваем твой привычный рацион с учетом пищевых привычек.
+            </div>
+            <div
+                className="relative items-center flex gap-3 mt-6 max-md:max-w-full max-md:flex-wrap"
+            >
+                <div className="flex w-2.5 shrink-0 h-2.5 flex-col my-auto rounded-[50%]"></div>
+                <div className="text-neutral-800 text-xl leading-7 tracking-wide self-stretch grow max-md:max-w-full">
+                    <div className="flex items-center">
+                        <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full mr-3"></div>
+                        <span>Создавай персонализированные рекомендации по улучшению питания.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div
+                className="relative items-center flex gap-3 mt-1 max-md:max-w-full max-md:flex-wrap"
+            >
+                <div className="flex w-2.5 shrink-0 h-2.5 flex-col my-auto rounded-[50%]"></div>
+                <div className="text-neutral-800 text-xl leading-7 tracking-wide self-stretch grow max-md:max-w-full">
+                    <div className="flex items-center">
+                        <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full mr-3"></div>
+                        <span>Считай калории, белки, жиры и углеводы в ежедневном рационе.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div
+                className="relative text-neutral-800 text-2xl font-medium leading-6 whitespace-nowrap justify-center items-stretch bg-yellow-400 hover:bg-yellow-300 mt-20 mb-20 px-8 py-4 rounded-2xl max-md:my-10 max-md:px-5">
+                <a href="/auth/register"
+                   className="block w-full h-full text-neutral-800 text-2xl font-medium leading-6 whitespace-nowrap justify-center items-stretch"
+                   target="_blank" rel="noopener noreferrer">
+                    Начать
+                </a>
+            </div>
+
         </div>
+
     );
 };
