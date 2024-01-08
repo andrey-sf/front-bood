@@ -207,7 +207,7 @@ export default function Charts() {
                                     <div
                                         className="text-neutral-600 text-sm leading-7 whitespace-nowrap"
                                     >
-                                        {caloriesDifference};
+                                        {caloriesDifference}
 
                                     </div>
                                 </div>

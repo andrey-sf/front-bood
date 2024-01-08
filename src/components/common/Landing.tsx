@@ -1,4 +1,5 @@
-
+import Image from 'next/image';
+import Link from "next/link";
 
 
 export default function Landing() {
@@ -6,10 +7,13 @@ export default function Landing() {
         <div
             className="flex-col overflow-hidden relative flex min-h-[730px] w-full pl-16 pr-20 py-12 items-start max-md:max-w-full max-md:px-5"
         >
-            <img
+            <Image
                 loading="lazy"
-                srcSet="/background_main-screen.png"
+                src="/background_main-screen.png"
                 className="absolute h-full w-full object-cover object-center inset-0"
+                alt="Background Image"
+                width={1440}
+                height={730}
             />
             <div
                 className="relative text-yellow-400 text-5xl font-semibold leading-[61px] w-[738px] max-w-full mt-20 max-md:text-4xl max-md:leading-[52px] max-md:mt-10"
@@ -49,11 +53,11 @@ export default function Landing() {
             </div>
             <div
                 className="relative text-neutral-800 text-2xl font-medium leading-6 whitespace-nowrap justify-center items-stretch bg-yellow-400 hover:bg-yellow-300 mt-20 mb-20 px-8 py-4 rounded-2xl max-md:my-10 max-md:px-5">
-                <a href="/auth/register"
+                <Link href="/auth/register"
                    className="block w-full h-full text-neutral-800 text-2xl font-medium leading-6 whitespace-nowrap justify-center items-stretch"
                    target="_blank" rel="noopener noreferrer">
                     Начать
-                </a>
+                </Link>
             </div>
 
         </div>

@@ -2,7 +2,7 @@ import {apiSlice} from "@/redux/services/apiSlice";
 
 
 
-// @ts-ignore
+
 const dataApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         calculateStandard: builder.query<CalculateStandart, void>({

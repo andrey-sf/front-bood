@@ -33,7 +33,8 @@ export default function Questionnaire() {
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
     const [selectedAllergens, setSelectedAllergens] = useState<number[]>([]);
-    const [selectedActivity, setSelectedActivity] = useState<string>("1.2");
+    const [selectedActivity, setSelectedActivity] = useState<number>(1.2);
+
 
 
     const [postPersonCard] = usePostPersonCardMutation();
@@ -100,9 +101,11 @@ export default function Questionnaire() {
             setSelectedAllergens([...selectedAllergens, categoryId]);
         }
     };
+
     const handleActivityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedActivity(event.target.value);
+        setSelectedActivity(parseFloat(event.target.value));
     };
+
     const handleSave = () => {
         const isHeightValid = validateNumericInput(height, 100, 250);
         const isWeightValid = validateNumericInput(weight, 15, 350);
@@ -137,7 +140,7 @@ export default function Questionnaire() {
             age,
             gender,
             target: "", // Замените на актуальные данные
-            activity: Number(selectedActivity),
+            activity: (selectedActivity),
             image: "", // Замените на актуальные данные
             femaletype: selectedFemaleTypes.map((femaleType) => femaleType.id),
             exclude_products: selectedProducts.map((product) => product.id),
@@ -512,12 +515,13 @@ export default function Questionnaire() {
                         Физическая активность:
                     </div>
                     <select
-                        value={selectedActivity}
+                        value={selectedActivity.toString()} // Convert number to string for the select value
                         onChange={handleActivityChange}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                         {ACTIVITY_TYPE.map(([value, label]) => (
-                            <option key={value} value={value}>
+                            <option key={value}
+                                    value={parseFloat(value).toString()}> {/* Convert value to number and then to string */}
                                 {label}
                             </option>
                         ))}
